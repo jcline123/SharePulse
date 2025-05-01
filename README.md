@@ -53,7 +53,7 @@ pip install -r requirements.txt
 Use PyInstaller:
 
 ```bash
-pyinstaller --onefile --windowed --icon=sharepulse.ico SharePulse.py
+pyinstaller --onefile --windowed --icon=sharepulse.ico SharePulse.py --uac-admin
 ```
 
 The result will be in `dist/SharePulse.exe`.
