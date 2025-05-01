@@ -22,7 +22,7 @@
 
 ### Option 1: Download the Installer (Recommended)
 
-Download the latest SharePulse installer from the [Releases](https://github.com/yourusername/sharepulse/releases) page.
+Download the latest SharePulse installer from the [Releases](https://github.com/jcline123/sharepulse/releases) page.
 
 The installer:
 - Installs to `C:\Program Files\SharePulse`
@@ -119,13 +119,25 @@ To test SharePulse's healing logic:
 
 ---
 
-## 🛠 Planned Features
+## 🧠 Disabling UAC for SharePulse (Optional, for server environments)
 
-- [ ] Multi-server credential support
-- [ ] Reboot trigger (optional)
-- [ ] Credential viewer
-- [ ] Retry counter and escalation options
-- [ ] Service-based version (non-tray)
+If you're using SharePulse on a trusted server and want it to launch at login without any UAC prompts or scheduling workarounds, you can disable UAC system-wide.
+
+> ⚠ **Only do this in secure, controlled environments. Disabling UAC reduces OS protections.**
+
+### ✅ PowerShell Method
+
+```powershell
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name EnableLUA -Value 0
+```
+
+1. Run the above command in an **elevated PowerShell window**
+2. Reboot the server
+
+After this:
+- SharePulse will run with full admin rights at login
+- It can re-add credentials without a UAC prompt
+- No Task Scheduler or `.bat` launchers are required
 
 ---
 
